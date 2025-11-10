@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation'
 import { findPost } from '@/lib/posts'
 
+export const metadata = { title: 'Journal - Post' }
+
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
 }

@@ -1,3 +1,5 @@
+export const metadata = { title: 'About' }
+
 export default function AboutPage() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-24">

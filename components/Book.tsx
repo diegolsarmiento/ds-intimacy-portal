@@ -25,18 +25,27 @@ export default function Book() {
           >
             The Intimacy Code
           </h2>
+
           <p className="mt-4 text-base md:text-lg leading-relaxed opacity-80">
-            Not a self-help manual. Not a tech critique.
-            <em> The Intimacy Code </em> is a manifesto for feeling again—
-            a book about connection, sensual intelligence, and the spaces
-            between algorithms and skin.
+            A book written for those who still believe technology can feel.  
+            <em>The Intimacy Code</em> explores the silent spaces between our
+            devices — where attention becomes touch, and algorithms learn to
+            listen back.
           </p>
+
           <p className="mt-4 text-base leading-relaxed opacity-80">
-            It merges data, design, and desire into a single language—inviting
-            us to rethink how we touch, communicate, and belong in the digital
-            age. Each chapter blends research, storytelling, and emotion to
-            remind us: presence is the new luxury.
+            Chapter 9 taught us that connection is the new currency of survival.
+            Chapter 10 reminded us to return barefoot to the world — to let grass,
+            breath, and skin decode what Wi-Fi never could.  
+            Together, they close the loop: intellect and sensation,
+            circuit and pulse.
           </p>
+
+          <p className="mt-4 text-base leading-relaxed opacity-80">
+            This isn’t self-help. It’s an act of remembering — that feeling deeply
+            is still a kind of intelligence.
+          </p>
+
           <div className="mt-8 flex gap-3">
             <Link
               href="/book"

@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { posts } from '@/lib/posts'
 
+export const metadata = { title: 'Journal' }
+
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
 }

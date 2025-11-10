@@ -15,22 +15,34 @@ export default function About() {
           >
             Diego Sarmiento
           </h2>
+
           <p className="mt-4 text-base md:text-lg leading-relaxed opacity-80">
-            A Venezuelan-born engineer and writer exploring how
-            <em> technology, design, and desire </em> intertwine.
-            He’s lived in five countries—each one teaching him a different
-            dialect of connection.
+            I was born in Venezuela and have lived in five countries, each one
+            teaching me a different language of connection. Today, as an
+            American citizen living in the northeast of Florida, I explore what
+            it means to belong to many worlds at once—and how technology can
+            deepen, not dilute, that sense of presence.
           </p>
+
           <p className="mt-4 text-base leading-relaxed opacity-80">
-            Today, from the northeast coast of Florida, he builds digital
-            experiences that feel human. Through <em>The Intimacy Code</em>,
-            he invites readers and brands to rediscover the art of presence in a wired world.
+            My work sits at the intersection of technology, design, and desire—
+            what I call <em>emotional technology</em>. It’s about building systems
+            that feel alive: interfaces that invite, communities that listen,
+            brands that speak in the language of empathy.
           </p>
+
           <p className="mt-4 text-base leading-relaxed opacity-80">
-            <strong>Workshops, talks, and consulting</strong> explore what he
-            calls “emotional technology”—the skill of designing products,
-            systems, and stories that move people on a sensual and
-            psychological level.
+            I began as a software engineer, fascinated by structure; I stayed
+            because I discovered poetry inside precision. Now, through
+            <em> The Intimacy Code</em> and the workshops it inspired, I help
+            others design experiences that honor curiosity, presence, and
+            sensual intelligence.
+          </p>
+
+          <p className="mt-4 text-base leading-relaxed opacity-80">
+            Most mornings start barefoot, notebook beside coffee, listening to
+            the rhythm of the Atlantic. That’s where I remember: connection—
+            digital or human—is still our most beautiful invention.
           </p>
         </div>
 
