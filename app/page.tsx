@@ -1,101 +1,61 @@
-import Image from "next/image";
+import Nav from '@/components/Nav'
+import SiteFooter from '@/components/SiteFooter'
+import Link from 'next/link'
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded-sm font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <>
+      <Nav />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+      <main>
+        {/* Placeholder hero so you can drop your block later */}
+        <section className="mx-auto max-w-4xl px-4 py-28 text-center">
+          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">
+            The philosopher who whispers in design.
+          </h1>
+          <p className="mt-4 text-base md:text-lg opacity-80">
+            Intimacy, technology, and the art of feeling more—on and off the screen.
+          </p>
+          <div className="mt-8">
+            <Link href="/experiences" className="border px-5 py-2 rounded-md text-sm">
+              Enter the intimacy lab
+            </Link>
+          </div>
+        </section>
+
+        {/* Section anchors you’ll fill with UI Blocks later */}
+        <section id="about" className="mx-auto max-w-6xl px-4 py-20 border-t">
+          <div className="max-w-3xl">
+            <h2 className="text-2xl font-semibold">About Diego</h2>
+            <p className="mt-3 opacity-80 text-sm">
+              (Drop in “Content Sections · Centered” here)
+            </p>
+          </div>
+        </section>
+
+        <section id="book" className="mx-auto max-w-6xl px-4 py-20 border-t">
+          <h2 className="text-2xl font-semibold">The Intimacy Code</h2>
+          <p className="mt-3 opacity-80 text-sm">
+            (Drop in “Feature Sections · With large bordered screenshot” here)
+          </p>
+        </section>
+
+        <section id="experiences" className="mx-auto max-w-6xl px-4 py-20 border-t">
+          <h2 className="text-2xl font-semibold">Experiences</h2>
+          <p className="mt-3 opacity-80 text-sm">
+            (Drop in “Feature Sections · Offset with feature list” here)
+          </p>
+        </section>
+
+        <section id="journal" className="mx-auto max-w-6xl px-4 py-20 border-t">
+          <h2 className="text-2xl font-semibold">Journal</h2>
+          <p className="mt-3 opacity-80 text-sm">
+            (Drop in “Blog Sections · With featured post” here)
+          </p>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+
+      <SiteFooter />
+    </>
+  )
 }
