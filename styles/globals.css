@@ -1,20 +1,137 @@
 @layer theme, base, clerk, components, utilities;
 @import 'tailwindcss';
 
+/* ─── Core Colors ─────────────────────────────────────────────────────────── */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Base neutrals */
+  --background: 255 255 255;        /* light mode base */
+  --foreground: 23 23 23;           /* near-black text */
+
+  /* Soft Design Palette (from Chapter 5) */
+  --rose: 233 196 176;              /* warmth / skin */
+  --lav: 186 168 255;               /* imagination / reflection */
+  --gold: 232 221 176;              /* intimacy / nostalgia */
+  --charcoal: 15 15 16;             /* grounding / contrast */
+
+  /* Typographic rhythm */
+  --radius: 1.25rem;
+  --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: 'Georgia', 'Times New Roman', serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 10 10 10;         /* deep charcoal */
+    --foreground: 237 237 237;      /* soft white */
   }
 }
 
+/* ─── Base Styles ─────────────────────────────────────────────────────────── */
+
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground));
+  background-color: rgb(var(--background));
+  font-family: var(--font-body);
+  font-feature-settings: "ss01", "ss02", "cv02", "cv03";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Smooth section spacing */
+section {
+  scroll-margin-top: 6rem;
+}
+
+/* ─── Gradient + Accent Utilities ─────────────────────────────────────────── */
+
+/* Reusable gradient glow for sections */
+.section-glow {
+  position: relative;
+  overflow: hidden;
+}
+.section-glow::before,
+.section-glow::after {
+  content: "";
+  position: absolute;
+  inset: auto;
+  width: 64rem;
+  height: 64rem;
+  border-radius: 9999px;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.18;
+}
+.section-glow::before {
+  top: -20rem;
+  left: -20rem;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgb(var(--rose)) 0%,
+    transparent 60%
+  );
+}
+.section-glow::after {
+  bottom: -24rem;
+  right: -16rem;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgb(var(--lav)) 0%,
+    transparent 60%
+  );
+}
+
+/* Text gradient accent */
+.text-glow {
+  background: linear-gradient(90deg, rgb(var(--rose)), rgb(var(--lav)));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Gradient border accent */
+.border-glow {
+  border-image: linear-gradient(90deg, rgb(var(--rose)), rgb(var(--lav))) 1;
+}
+
+/* Soft card hover background */
+.card-hover {
+  position: relative;
+  overflow: hidden;
+}
+.card-hover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--rose), 0.06),
+    rgba(var(--lav), 0.06)
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.card-hover:hover::before {
+  opacity: 1;
+}
+
+/* Buttons */
+button,
+.button {
+  border-radius: 0.5rem;
+  transition: opacity 0.25s ease;
+}
+button:hover,
+.button:hover {
+  opacity: 0.9;
+}
+
+/* Typography tweaks for headers */
+h1, h2, h3 {
+  letter-spacing: -0.01em;
+}
+
+.hero-fade {
+  background: linear-gradient(to bottom, rgba(var(--lav),0.04), transparent 40%);
 }
