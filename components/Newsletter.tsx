@@ -1,5 +1,4 @@
 'use client'
-
 import { useState } from 'react'
 
 export default function Newsletter() {
@@ -11,12 +10,9 @@ export default function Newsletter() {
     const email = (new FormData(form).get('email') as string)?.trim()
     if (!email) return
     setStatus('loading')
-
     try {
-      // TODO: wire to your provider (Resend, ConvertKit, MailerLite, etc.)
-      // Example POST:
-      // await fetch('/api/subscribe', { method: 'POST', body: JSON.stringify({ email }) })
-      await new Promise(r => setTimeout(r, 800)) // demo delay
+      // TODO: wire to your provider (/api/subscribe → Resend/MailerLite/etc.)
+      await new Promise(r => setTimeout(r, 700))
       setStatus('success')
       form.reset()
     } catch {
@@ -28,11 +24,11 @@ export default function Newsletter() {
     <section
       id="newsletter"
       aria-labelledby="newsletter-heading"
-      className="mx-auto max-w-6xl px-4 py-24 md:py-32 border-t"
+      className="section-glow mx-auto max-w-6xl px-4 py-24 md:py-32 border-t"
     >
       <div className="max-w-3xl">
         <h2 id="newsletter-heading" className="text-3xl md:text-4xl font-semibold tracking-tight">
-          Join the circle
+          Join the <span className="text-glow">circle</span>
         </h2>
         <p className="mt-4 text-base md:text-lg opacity-80">
           Private letters, early invites, soft experiments. No noise—only closeness.
@@ -50,7 +46,7 @@ export default function Newsletter() {
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="rounded-md border px-4 py-2 text-sm disabled:opacity-60"
+            className="rounded-md border px-4 py-2 text-sm border-glow disabled:opacity-60"
           >
             {status === 'loading' ? 'One moment…' : 'I’m in'}
           </button>
@@ -61,14 +57,10 @@ export default function Newsletter() {
         </p>
 
         {status === 'success' && (
-          <p role="status" className="mt-3 text-sm">
-            Check your inbox—your first letter is on its way.
-          </p>
+          <p role="status" className="mt-3 text-sm">Check your inbox—your first letter is on its way.</p>
         )}
         {status === 'error' && (
-          <p role="status" className="mt-3 text-sm">
-            Something flickered. Try again, love.
-          </p>
+          <p role="status" className="mt-3 text-sm">Something flickered. Try again, love.</p>
         )}
       </div>
     </section>
