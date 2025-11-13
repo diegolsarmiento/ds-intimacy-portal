@@ -5,12 +5,17 @@ import { posts, findPost } from '@/lib/posts'
 const formatDate = (iso: string) =>
   new Date(iso).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
 
-export function generateStaticParams() {
+type Params = { slug: string }
+
+export function generateStaticParams(): Params[] {
   return posts.map(p => ({ slug: p.slug }))
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const post = findPost(params.slug)
+export async function generateMetadata(
+  { params }: { params: Promise<Params> }
+) {
+  const { slug } = await params
+  const post = findPost(slug)
   if (!post) return { title: 'Journal' }
   return {
     title: post.title,
@@ -24,8 +29,11 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   }
 }
 
-export default function PostPage({ params }: { params: { slug: string } }) {
-  const post = findPost(params.slug)
+export default async function PostPage(
+  { params }: { params: Promise<Params> }
+) {
+  const { slug } = await params
+  const post = findPost(slug)
   if (!post) return notFound()
 
   const idx = posts.findIndex(p => p.slug === post.slug)
@@ -34,7 +42,6 @@ export default function PostPage({ params }: { params: { slug: string } }) {
 
   return (
     <main className="section-glow mx-auto max-w-3xl px-4 py-24">
-      {/* top meta / breadcrumb */}
       <div className="flex items-center justify-between gap-6">
         <Link href="/journal" className="text-sm underline underline-offset-4 opacity-80 hover:opacity-100">
           ← Back to Journal
@@ -44,12 +51,10 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         </time>
       </div>
 
-      {/* title */}
       <h1 className="mt-4 text-3xl md:text-4xl font-semibold tracking-tight">
         <span className="text-glow">{post.title}</span>
       </h1>
 
-      {/* tags */}
       {post.tags?.length ? (
         <div className="mt-4 flex flex-wrap gap-2">
           {post.tags.map(t => (
@@ -60,7 +65,6 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         </div>
       ) : null}
 
-      {/* body */}
       <article className="mt-8 space-y-5 leading-relaxed opacity-90">
         {post.body ? (
           post.body.split('\n\n').map((para, i) => <p key={i}>{para}</p>)
@@ -71,10 +75,8 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         )}
       </article>
 
-      {/* divider */}
       <div className="mt-12 h-px w-full border-t" />
 
-      {/* next/prev */}
       <nav aria-label="Post navigation" className="mt-6 flex items-center justify-between gap-4">
         <div>
           {prev ? (
