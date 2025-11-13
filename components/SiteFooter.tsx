@@ -37,7 +37,7 @@ export default function SiteFooter() {
           <p className="text-sm font-semibold mb-3">Contact</p>
           <ul className="space-y-2 text-sm opacity-80">
             <li><Link href="/contact">Say hello</Link></li>
-            <li><a href="mailto:hello@diegosarmiento.com">Email</a></li>
+            <li><a href="mailto:hola@diegosarmiento.com">Email</a></li>
           </ul>
         </div>
       </div>
