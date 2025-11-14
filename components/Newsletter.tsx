@@ -10,9 +10,14 @@ export default function Newsletter() {
     const email = (new FormData(form).get('email') as string)?.trim()
     if (!email) return
     setStatus('loading')
+
     try {
-      // TODO: wire to your provider (/api/subscribe → Resend/MailerLite/etc.)
-      await new Promise(r => setTimeout(r, 700))
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+      if (!res.ok) throw new Error('Failed')
       setStatus('success')
       form.reset()
     } catch {

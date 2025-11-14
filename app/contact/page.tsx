@@ -1,3 +1,5 @@
+import { handleContact } from './actions'
+
 export const metadata = { title: 'Contact' }
 
 export default function ContactPage() {
@@ -8,7 +10,7 @@ export default function ContactPage() {
         Tell me about your team, your product, and the feeling you want your users to remember.
       </p>
 
-      <form className="mt-10 space-y-4 max-w-xl">
+      <form className="mt-10 space-y-4 max-w-xl" action={handleContact}>
         <div className="grid gap-4 md:grid-cols-2">
           <input className="rounded-md border px-3 py-2 text-sm" name="name" placeholder="Name" required />
           <input className="rounded-md border px-3 py-2 text-sm" name="email" type="email" placeholder="Email" required />
