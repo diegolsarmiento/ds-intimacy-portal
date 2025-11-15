@@ -4,6 +4,13 @@ import { redirect } from 'next/navigation'
 import { sendContactNotification, sendContactConfirmation } from '@/lib/email/contact'
 
 export async function handleContact(formData: FormData) {
+  // 🕳️ honeypot
+  const trap = String(formData.get('website') || '')
+  if (trap) {
+    // bot detected – pretend everything is fine
+    redirect('/contact?sent=1')
+  }
+
   const name = String(formData.get('name') || '')
   const email = String(formData.get('email') || '')
   const company = String(formData.get('company') || '')
@@ -19,6 +26,5 @@ export async function handleContact(formData: FormData) {
   await sendContactNotification(payload)
   await sendContactConfirmation(payload)
 
-  // ✅ simple success flag in the URL
   redirect('/contact?sent=1')
 }

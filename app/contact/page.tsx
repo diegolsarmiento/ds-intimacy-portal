@@ -71,6 +71,14 @@ export default async function ContactPage({
           required
         />
 
+        {/* Honeypot – humans never see this */}
+        <div className="hidden">
+          <label>
+            Leave this field empty
+            <input name="website" autoComplete="off" />
+          </label>
+        </div>
+
         <button
           type="submit"
           className="button rounded-md border px-5 py-2 text-sm border-glow"
