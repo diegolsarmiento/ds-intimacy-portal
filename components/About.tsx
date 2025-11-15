@@ -23,7 +23,7 @@ export default function About() {
         </div>
 
         <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl bg-neutral-100 card-hover">
-          <Image src="/images/diego-portrait.jpg" alt="Diego Sarmiento portrait" fill className="object-cover object-center" />
+          <Image src="/images/diego-portrait.png" alt="Diego Sarmiento portrait" fill className="object-cover object-center" />
         </div>
       </div>
     </section>
