@@ -22,9 +22,17 @@ export default function About() {
           </p>
         </div>
 
-        <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl bg-neutral-100 card-hover">
-          <Image src="/images/diego-portrait.png" alt="Diego Sarmiento portrait" fill className="object-cover object-center" />
+       <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl bg-neutral-100 card-hover p-3 md:p-4">
+        <div className="relative h-full w-full overflow-hidden rounded-xl">
+          <Image
+            src="/images/diego-portrait.png"
+            alt="Diego Sarmiento portrait"
+            fill
+            className="object-cover object-center"
+          />
         </div>
+      </div>
+
       </div>
     </section>
   )
