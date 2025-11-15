@@ -1,5 +1,6 @@
 'use server'
 
+import { redirect } from 'next/navigation'
 import { sendContactNotification, sendContactConfirmation } from '@/lib/email/contact'
 
 export async function handleContact(formData: FormData) {
@@ -18,5 +19,6 @@ export async function handleContact(formData: FormData) {
   await sendContactNotification(payload)
   await sendContactConfirmation(payload)
 
-  // you can return a status or redirect later if you want
+  // ✅ simple success flag in the URL
+  redirect('/contact?sent=1')
 }

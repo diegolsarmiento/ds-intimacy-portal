@@ -62,10 +62,10 @@ export default function Newsletter() {
         </p>
 
         {status === 'success' && (
-          <p role="status" className="mt-3 text-sm">Check your inbox—your first letter is on its way.</p>
+          <p role="status"  className="mt-4 text-sm text-glow animate-fadeIn">Check your inbox—your first letter is on its way.</p>
         )}
         {status === 'error' && (
-          <p role="status" className="mt-3 text-sm">Something flickered. Try again, love.</p>
+          <p role="status"  className="mt-4 text-sm text-glow animate-fadeIn">Something flickered. Try again, love.</p>
         )}
       </div>
     </section>
