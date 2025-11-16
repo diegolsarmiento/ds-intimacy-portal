@@ -27,6 +27,25 @@ export default async function ContactPage({
         </p>
       )}
 
+      {/* Contact Info Blocks */}
+      <div className="mt-10 grid gap-6 md:grid-cols-2 max-w-xl">
+        <div className="rounded-xl border border-glow p-4 space-y-1">
+          <h3 className="text-sm font-semibold">Phone</h3>
+          <p className="text-sm opacity-80">
+            <a href="tel:+1-XXX-XXX-XXXX" className="underline underline-offset-4 hover:opacity-100">
+              +1 (904) 792-2601
+            </a>
+          </p>
+        </div>
+
+        <div className="rounded-xl border border-glow p-4 space-y-1">
+          <h3 className="text-sm font-semibold">Location</h3>
+          <p className="text-sm opacity-80">
+            St. Johns County, FL  
+          </p>
+        </div>
+      </div>
+
       <form className="mt-10 space-y-4 max-w-xl" action={handleContact}>
         <div className="grid gap-4 md:grid-cols-2">
           <input
