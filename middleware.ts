@@ -1,8 +1,31 @@
+import { NextResponse, NextRequest, NextFetchEvent } from 'next/server'
 import { clerkMiddleware } from '@clerk/nextjs/server'
 
-// This Middleware does not protect any routes by default.
-// See https://clerk.com/docs/references/nextjs/clerk-middleware for more information about configuring your Middleware
-export default clerkMiddleware()
+const SPANISH_COUNTRIES = new Set<string>([
+  'ES', 'MX', 'AR', 'CO', 'CL', 'PE', 'VE', 'UY', 'PY', 'BO', 'EC', 'CR',
+  'PA', 'SV', 'GT', 'HN', 'NI', 'DO', 'PR',
+])
+
+const clerk = clerkMiddleware()
+
+export default function middleware(request: NextRequest, event: NextFetchEvent) {
+  const { pathname } = request.nextUrl
+
+  // 🌎 Geo-based redirect: only from "/" to "/es"
+  if (pathname === '/') {
+    // TS-safe: use Vercel header only
+    const country = request.headers.get('x-vercel-ip-country')
+
+    if (country && SPANISH_COUNTRIES.has(country)) {
+      const url = request.nextUrl.clone()
+      url.pathname = '/es'
+      return NextResponse.redirect(url)
+    }
+  }
+
+  // 🔐 Let Clerk handle everything else
+  return clerk(request, event)
+}
 
 export const config = {
   matcher: [
