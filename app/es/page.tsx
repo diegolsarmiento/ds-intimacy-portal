@@ -7,7 +7,6 @@ import Image from 'next/image'
 /* --- Pequeño bloque cliente para mostrar/ocultar el chatbot embebido --- */
 function ChatbotBlock() {
   'use client'
-  const [open, setOpen] = React.useState(false)
   return (
     <div className="rounded-2xl border p-6 md:p-8 card-hover">
       <div className="flex items-center justify-between gap-4">
@@ -22,7 +21,7 @@ function ChatbotBlock() {
       <div className="mt-4">
         <Link
           href="https://conversa.diegosarmiento.com"
-          target="_blank"
+          target='_blank'
           className="underline underline-offset-4 text-sm opacity-80 hover:opacity-100"
         >
           Abrir en una pestaña nueva

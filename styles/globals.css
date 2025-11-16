@@ -121,6 +121,7 @@ button,
 .button {
   border-radius: 0.5rem;
   transition: opacity 0.25s ease;
+  cursor: pointer;
 }
 button:hover,
 .button:hover {
@@ -154,3 +155,6 @@ html { scrollbar-gutter: stable both-edges; }
 }
 .animate-fadeIn { animation: fadeIn .4s ease forwards; }
 
+a, Link {
+  cursor: pointer;
+}
