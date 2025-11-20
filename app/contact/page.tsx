@@ -53,7 +53,6 @@ export default async function ContactPage({
             name="name"
             placeholder="Name"
             required
-            disabled
           />
           <input
             className="rounded-md border px-3 py-2 text-sm"
@@ -61,7 +60,6 @@ export default async function ContactPage({
             type="email"
             placeholder="Email"
             required
-            disabled
           />
         </div>
 
@@ -69,16 +67,14 @@ export default async function ContactPage({
           className="rounded-md border px-3 py-2 text-sm w-full"
           name="company"
           placeholder="Company (optional)"
-          disabled
         />
 
         <select
           className="rounded-md border px-3 py-2 text-sm w-full"
           name="interest"
           defaultValue=""
-          disabled
         >
-          <option value="" disabled>
+          <option value="">
             I'm interested in…
           </option>
           <option>Workshop</option>
@@ -92,7 +88,6 @@ export default async function ContactPage({
           name="message"
           placeholder="Message"
           required
-          disabled
         />
 
         {/* Honeypot – humans never see this */}
@@ -106,7 +101,6 @@ export default async function ContactPage({
         <button
           type="submit"
           className="button rounded-md border px-5 py-2 text-sm border-glow"
-          disabled
         >
           Send
         </button>
