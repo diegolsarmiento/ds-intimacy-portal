@@ -1,4 +1,6 @@
 import { handleContact } from './actions'
+import { createContactSignatureToken } from '@/lib/security/contactSignature'
+import Script from 'next/script'
 
 export const metadata = { title: 'Contact' }
 
@@ -14,8 +16,21 @@ export default async function ContactPage({
   const sp = (await searchParams) ?? {}
   const sent = sp.sent === '1'
 
+  const signatureToken = createContactSignatureToken()
+  const startedAt = Date.now().toString()
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY
+
   return (
     <main className="section-glow mx-auto max-w-3xl px-4 py-24">
+      {/* Load Turnstile script only if configured */}
+      {turnstileSiteKey && (
+        <Script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+          async
+          defer
+        />
+      )}
+
       <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">Contact</h1>
       <p className="mt-4 opacity-80">
         Tell me about your team, your product, and the feeling you want your users to remember.
@@ -97,6 +112,19 @@ export default async function ContactPage({
             <input name="website" autoComplete="off" />
           </label>
         </div>
+
+        {/* ⏱ Timing + 🔐 Signature */}
+        <input type="hidden" name="startedAt" value={startedAt} />
+        <input type="hidden" name="signatureToken" value={signatureToken} />
+
+        {/* 🛡 Turnstile – managed/minimal UI, optional */}
+        {turnstileSiteKey && (
+          <div
+            className="cf-turnstile"
+            data-sitekey={turnstileSiteKey}
+            data-theme="auto"
+          />
+        )}
 
         <button
           type="submit"
