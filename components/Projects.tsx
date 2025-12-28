@@ -6,12 +6,14 @@ const items = [
     href: 'https://rocketch.ai',
     desc: 'Order and calm for family law—an AI assistant designed to reduce friction, anxiety, and overload in emotionally sensitive journeys.',
     logo: '/images/rocketch_mark.png',
+    tag: 'Active product · Founder & designer',
   },
   {
     name: 'SeductHub',
     href: 'https://seducthub.com',
     desc: 'An AI-powered commerce and creator platform exploring emotional UX, intimacy, and trust in adult wellness.',
     logo: '/images/seducthub_mark.png',
+    tag: 'Ongoing lab · Founder',
   },
 ]
 
@@ -43,6 +45,9 @@ export default function Projects() {
               <div>
                 <div className="text-sm font-semibold">{it.name}</div>
                 <p className="mt-2 text-sm opacity-80">{it.desc}</p>
+                <p className="mt-3 text-xs opacity-60">
+                  {it.tag}
+                </p>
                 <p className="mt-3 text-sm underline underline-offset-4 opacity-80">
                   Visit site →
                 </p>
