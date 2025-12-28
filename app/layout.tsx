@@ -22,6 +22,31 @@ export const metadata: Metadata = {
   description:
     'Author of The Intimacy Code — exploring technology, desire, and the art of emotional connection.',
   icons: [{ rel: 'icon', url: '/favicon.ico' }],
+
+  openGraph: {
+    type: 'website',
+    url: 'https://www.diegosarmiento.com',
+    siteName: 'Diego Sarmiento',
+    title: 'Diego Sarmiento - The Intimacy Code',
+    description:
+      'Author of The Intimacy Code — exploring technology, desire, and the art of emotional connection.',
+    images: [
+      {
+        url: '/images/og-book.png',
+        width: 1200,
+        height: 630,
+        alt: 'The Intimacy Code — Diego Sarmiento',
+      },
+    ],
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Diego Sarmiento - The Intimacy Code',
+    description:
+      'Author of The Intimacy Code — exploring technology, desire, and the art of emotional connection.',
+    images: ['/images/og-book.png'],
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
