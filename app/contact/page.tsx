@@ -47,7 +47,7 @@ export default async function ContactPage({
         <div className="rounded-xl border border-glow p-4 space-y-1">
           <h3 className="text-sm font-semibold">Phone</h3>
           <p className="text-sm opacity-80">
-            <a href="tel:+1-XXX-XXX-XXXX" className="underline underline-offset-4 hover:opacity-100">
+            <a href="tel:+19047922601" className="underline underline-offset-4 hover:opacity-100">
               +1 (904) 792-2601
             </a>
           </p>
@@ -63,19 +63,32 @@ export default async function ContactPage({
 
       <form className="mt-10 space-y-4 max-w-xl" action={handleContact}>
         <div className="grid gap-4 md:grid-cols-2">
-          <input
-            className="rounded-md border px-3 py-2 text-sm"
-            name="name"
-            placeholder="Name"
-            required
-          />
-          <input
-            className="rounded-md border px-3 py-2 text-sm"
-            name="email"
-            type="email"
-            placeholder="Email"
-            required
-          />
+          <div>
+            <label htmlFor="name" className="sr-only">
+              Name
+            </label>
+            <input
+              id="name"
+              className="rounded-md border px-3 py-2 text-sm w-full"
+              name="name"
+              placeholder="Name"
+              required
+            />
+          </div>
+
+          <div>
+            <label htmlFor="email" className="sr-only">
+              Email
+            </label>
+            <input
+              id="email"
+              className="rounded-md border px-3 py-2 text-sm w-full"
+              name="email"
+              type="email"
+              placeholder="Email"
+              required
+            />
+          </div>
         </div>
 
         <input
