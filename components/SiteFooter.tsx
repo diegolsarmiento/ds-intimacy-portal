@@ -91,20 +91,32 @@ export default function SiteFooter() {
           <p className="text-sm font-semibold mb-3">Contact</p>
           <ul className="space-y-2 text-sm opacity-80">
             <li>
+              <a
+                href="https://www.linkedin.com/in/diegolsarmiento"
+                target="_blank"
+                rel="noreferrer"
+                className="cursor-pointer inline-block transition-opacity opacity-90 hover:opacity-100"
+              >
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://x.com/DiegoLSarmiento"
+                target="_blank"
+                rel="noreferrer"
+                className="cursor-pointer inline-block transition-opacity opacity-90 hover:opacity-100"
+              >
+                X / Twitter
+              </a>
+            </li>
+            <li>
               <Link
                 href="/contact"
                 className="cursor-pointer inline-block transition-opacity opacity-90 hover:opacity-100"
               >
                 Say hello
               </Link>
-            </li>
-            <li>
-              <a
-                href="mailto:hola@diegosarmiento.com"
-                className="cursor-pointer inline-block transition-opacity opacity-90 hover:opacity-100"
-              >
-                hola@diegosarmiento.com
-              </a>
             </li>
           </ul>
         </div>
