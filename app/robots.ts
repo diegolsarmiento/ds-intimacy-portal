@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/'],
     },
-    sitemap: 'https://diegosarmiento.com/sitemap.xml',
+    sitemap: 'https://www.diegosarmiento.com/sitemap.xml',
   }
 }

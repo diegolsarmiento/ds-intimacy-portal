@@ -2,7 +2,7 @@
 import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = 'https://diegosarmiento.com'
+  const base = 'https://www.diegosarmiento.com'
 
   return [
     { url: `${base}/`, lastModified: new Date() },
