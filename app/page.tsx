@@ -3,7 +3,7 @@ import About from '@/components/About'
 import Book from '@/components/Book'
 import Experiences from '@/components/Experiences'
 import Journal from '@/components/Journal'
-import Newsletter from '@/components/Newsletter'
+import SoftHeat from '@/components/SoftHeat'
 
 export default function HomePage() {
   return (
@@ -13,7 +13,8 @@ export default function HomePage() {
       <Book />
       <Experiences />
       <Journal />
-      <Newsletter />
+      <SoftHeat />
     </>
   )
 }
+
