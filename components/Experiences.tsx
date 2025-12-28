@@ -1,5 +1,11 @@
 import Link from 'next/link'
 
+const outcomes = [
+  { label: 'Clarity', value: 'a shared language for tone, consent, and trust' },
+  { label: 'Tools', value: 'rituals + templates your team can reuse immediately' },
+  { label: 'Momentum', value: 'a sharper narrative and a cleaner emotional UX roadmap' },
+]
+
 const offers = [
   {
     title: 'Workshops — Emotional Technology',
@@ -43,21 +49,40 @@ export default function Experiences() {
       className="section-glow mx-auto max-w-6xl px-4 py-24 md:py-32 border-t"
       aria-labelledby="exp-heading"
     >
-      <div className="max-w-3xl">
-        <h2 id="exp-heading" className="text-3xl md:text-4xl font-semibold tracking-tight">
-          Experiences
-        </h2>
-        <p className="mt-4 text-base md:text-lg opacity-80">
-          I help teams and creators translate desire into design—quiet, precise, unforgettable.
-          Choose an experience, or invite me to craft one for your world.
-        </p>
+      <div className="grid gap-8 md:grid-cols-2 md:items-start">
+        <div className="max-w-3xl">
+          <h2 id="exp-heading" className="text-3xl md:text-4xl font-semibold tracking-tight">
+            Experiences
+          </h2>
+          <p className="mt-4 text-base md:text-lg opacity-80">
+            I help teams and creators translate desire into design—quiet, precise, unforgettable.
+            Choose an experience, or invite me to craft one for your world.
+          </p>
+          <p className="mt-4 text-sm opacity-70">
+            Best fit for product teams, founders, creators, and communities building in sensitive spaces
+            (where tone, trust, and language matter).
+          </p>
+        </div>
+
+        {/* What teams leave with (credibility + scannability) */}
+        <div className="rounded-2xl border border-glow p-6 md:p-7 card-hover">
+          <div className="text-sm font-semibold">What teams leave with</div>
+          <div className="mt-4 grid gap-3 sm:grid-cols-3">
+            {outcomes.map((o) => (
+              <div key={o.label} className="rounded-xl border p-4 card-hover">
+                <div className="text-xs opacity-60">{o.label}</div>
+                <div className="mt-1 text-sm font-semibold">{o.value}</div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       <div className="mt-12 grid gap-6 md:grid-cols-3">
         {offers.map((o) => (
           <div
             key={o.title}
-            className="group relative rounded-2xl border p-6 card-hover flex flex-col min-h-[360px]"
+            className="group relative rounded-2xl border p-6 card-hover flex flex-col min-h-[380px]"
           >
             {/* soft inner glow */}
             <div
