@@ -10,6 +10,7 @@ const offers = [
       'Translate desire into ethical, testable interfaces',
     ],
     tags: ['product', 'research', 'ux'],
+    cta: 'Request a workshop',
   },
   {
     title: 'Keynotes — The Intimacy Code',
@@ -20,6 +21,7 @@ const offers = [
       'Soft rebellion: designing for tenderness',
     ],
     tags: ['events', 'inspiration', 'trend'],
+    cta: 'Invite a keynote',
   },
   {
     title: 'Consulting — Private Lab',
@@ -30,6 +32,7 @@ const offers = [
       'Prototype reviews with live narrative edits',
     ],
     tags: ['strategy', 'brand', 'voice'],
+    cta: 'Start a private lab',
   },
 ]
 
@@ -54,12 +57,18 @@ export default function Experiences() {
         {offers.map((o) => (
           <div
             key={o.title}
-            className="group relative rounded-2xl border p-6 transition hover:shadow-lg"
+            className="group relative rounded-2xl border p-6 card-hover flex flex-col min-h-[360px]"
           >
             {/* soft inner glow */}
-            <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition group-hover:opacity-100"
-                 style={{ background: 'linear-gradient(135deg, rgba(var(--rose),.08), rgba(var(--lav),.08))' }} />
-            <div className="relative">
+            <div
+              className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition group-hover:opacity-100"
+              style={{
+                background:
+                  'linear-gradient(135deg, rgba(var(--rose),.08), rgba(var(--lav),.08))',
+              }}
+            />
+
+            <div className="relative flex flex-col flex-1">
               <div className="flex items-baseline justify-between gap-4">
                 <h3 className="text-lg font-semibold">{o.title}</h3>
                 <span className="text-xs opacity-60">{o.subtitle}</span>
@@ -68,8 +77,13 @@ export default function Experiences() {
               <ul className="mt-4 space-y-2 text-sm opacity-90">
                 {o.points.map((p) => (
                   <li key={p} className="flex gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full"
-                          style={{ background: 'linear-gradient(90deg, rgb(var(--rose)), rgb(var(--lav)))' }} />
+                    <span
+                      className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full"
+                      style={{
+                        background:
+                          'linear-gradient(90deg, rgb(var(--rose)), rgb(var(--lav)))',
+                      }}
+                    />
                     <span>{p}</span>
                   </li>
                 ))}
@@ -79,21 +93,20 @@ export default function Experiences() {
                 {o.tags.map((t) => (
                   <span
                     key={t}
-                    className="rounded-full border px-2.5 py-1 text-xs opacity-80"
-                    style={{ borderImage: 'linear-gradient(90deg, rgb(var(--rose)), rgb(var(--lav))) 1' }}
+                    className="rounded-full border border-glow px-2.5 py-1 text-xs opacity-80"
                   >
                     <span className="text-glow">{t}</span>
                   </span>
                 ))}
               </div>
 
-              <div className="mt-6">
+              {/* push CTA to bottom for equal-height cards */}
+              <div className="mt-auto pt-6">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center rounded-md border px-4 py-2 text-sm opacity-90 hover:opacity-100"
-                  style={{ borderImage: 'linear-gradient(90deg, rgb(var(--rose)), rgb(var(--lav))) 1' }}
+                  className="inline-flex items-center rounded-md border border-glow px-4 py-2 text-sm opacity-90 hover:opacity-100 cursor-pointer transition-opacity"
                 >
-                  Book a private session
+                  {o.cta}
                 </Link>
               </div>
             </div>
@@ -103,18 +116,23 @@ export default function Experiences() {
 
       {/* Soft CTA */}
       <div
-        className="mt-12 rounded-2xl border p-6 md:p-8"
+        className="mt-12 rounded-2xl border p-6 md:p-8 card-hover"
         style={{ background: 'linear-gradient(135deg, rgba(var(--rose),.06), rgba(var(--lav),.06))' }}
       >
         <p className="text-base md:text-lg opacity-80">
           Not sure which format fits? Tell me about your team, your product, and the feeling you want your users to remember.
         </p>
-        <div className="mt-4 flex gap-3">
-          <Link href="/contact" className="rounded-md border px-5 py-2.5 text-sm font-medium"
-                style={{ borderImage: 'linear-gradient(90deg, rgb(var(--rose)), rgb(var(--lav))) 1' }}>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <Link
+            href="/contact"
+            className="rounded-md border border-glow px-5 py-2.5 text-sm font-medium cursor-pointer transition-opacity opacity-90 hover:opacity-100"
+          >
             Design an experience
           </Link>
-          <Link href="/journal" className="text-sm underline underline-offset-4 opacity-80 hover:opacity-100">
+          <Link
+            href="/journal"
+            className="text-sm underline underline-offset-4 opacity-80 hover:opacity-100 cursor-pointer inline-block transition-opacity"
+          >
             Read how I think
           </Link>
         </div>
