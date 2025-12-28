@@ -30,7 +30,7 @@ export default function JournalIndex() {
 
           <Link
             href="/newsletter"
-            className="hidden md:inline-flex rounded-md border px-4 py-2 text-sm border-glow"
+            className="hidden md:inline-flex rounded-md border px-4 py-2 text-sm border-glow cursor-pointer transition-opacity opacity-90 hover:opacity-100"
           >
             Join the circle
           </Link>
@@ -41,10 +41,16 @@ export default function JournalIndex() {
             New essays arriving soon. Stay close.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Link href="/newsletter" className="border px-5 py-2.5 rounded-md text-sm border-glow">
+            <Link
+              href="/newsletter"
+              className="border px-5 py-2.5 rounded-md text-sm border-glow cursor-pointer transition-opacity opacity-90 hover:opacity-100"
+            >
               Join the circle
             </Link>
-            <Link href="/contact" className="underline underline-offset-4 text-sm opacity-80 hover:opacity-100">
+            <Link
+              href="/contact"
+              className="underline underline-offset-4 text-sm opacity-80 hover:opacity-100 cursor-pointer inline-block transition-opacity"
+            >
               Invite Diego to speak
             </Link>
           </div>
@@ -53,13 +59,23 @@ export default function JournalIndex() {
     )
   }
 
-  const [featured, ...rest] = posts
+  // ✅ Sort newest first so "featured" always makes sense
+  const sorted = [...posts].sort((a, b) => +new Date(b.date) - +new Date(a.date))
+  const [featured, ...rest] = sorted
 
-  // Small topic map (SEO + scanning). Safe even if tags are missing.
+  // Small topic map (SEO + scanning).
   const topics = [
     { label: 'Intimacy & Presence', hint: 'attention, feeling, tenderness' },
     { label: 'Emotional UX', hint: 'trust, consent, tone' },
     { label: 'AI & Belonging', hint: 'interfaces, companionship, ethics' },
+  ]
+
+  // ✅ Suggested reading path (credibility + structure)
+  const path = [
+    { slug: 'soft-ux-presence', label: 'Start here', title: 'Soft UX: Designing for Presence' },
+    { slug: 'companions-and-belonging', label: 'Then', title: 'Companions & the Future of Belonging' },
+    { slug: 'language-that-touches', label: 'Then', title: 'Language That Touches' },
+    { slug: 'designing-the-space-between', label: 'Finally', title: 'Designing the Space Between' },
   ]
 
   return (
@@ -79,13 +95,13 @@ export default function JournalIndex() {
         <div className="hidden md:flex items-center gap-3">
           <Link
             href="/newsletter"
-            className="rounded-md border px-4 py-2 text-sm border-glow"
+            className="rounded-md border px-4 py-2 text-sm border-glow cursor-pointer transition-opacity opacity-90 hover:opacity-100"
           >
             Join the circle
           </Link>
           <Link
             href="/contact"
-            className="rounded-md border px-4 py-2 text-sm opacity-90 hover:opacity-100"
+            className="rounded-md border px-4 py-2 text-sm cursor-pointer transition-opacity opacity-90 hover:opacity-100"
           >
             Invite Diego
           </Link>
@@ -100,6 +116,34 @@ export default function JournalIndex() {
             <div className="mt-2 text-sm opacity-70">{t.hint}</div>
           </div>
         ))}
+      </section>
+
+      {/* ✅ Reading path */}
+      <section className="mt-10 rounded-2xl border border-glow p-6 md:p-8 card-hover">
+        <div className="flex items-center justify-between gap-4 flex-wrap">
+          <h2 className="text-lg font-semibold">
+            Suggested reading path <span className="opacity-60 text-sm">(4 essays)</span>
+          </h2>
+          <Link
+            href="/newsletter"
+            className="text-sm underline underline-offset-4 opacity-80 hover:opacity-100 cursor-pointer inline-block transition-opacity"
+          >
+            Receive new essays quietly, by email
+          </Link>
+        </div>
+
+        <div className="mt-5 grid gap-3 md:grid-cols-2">
+          {path.map((p) => (
+            <Link
+              key={p.slug}
+              href={`/journal/${p.slug}`}
+              className="rounded-xl border border-glow p-4 opacity-90 hover:opacity-100 cursor-pointer block transition"
+            >
+              <div className="text-xs opacity-60">{p.label}</div>
+              <div className="mt-1 text-sm font-semibold">{p.title}</div>
+            </Link>
+          ))}
+        </div>
       </section>
 
       {/* Featured hero card */}
@@ -120,7 +164,10 @@ export default function JournalIndex() {
         </div>
 
         <h2 className="mt-3 text-2xl md:text-3xl font-semibold">
-          <Link href={`/journal/${featured.slug}`} className="text-glow">
+          <Link
+            href={`/journal/${featured.slug}`}
+            className="text-glow cursor-pointer inline-block transition-opacity hover:opacity-100 opacity-95"
+          >
             {featured.title}
           </Link>
         </h2>
@@ -140,15 +187,15 @@ export default function JournalIndex() {
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
             href={`/journal/${featured.slug}`}
-            className="inline-flex items-center rounded-md border px-4 py-2 text-sm opacity-90 hover:opacity-100 border-glow"
+            className="inline-flex items-center rounded-md border px-4 py-2 text-sm opacity-90 hover:opacity-100 border-glow cursor-pointer transition-opacity"
           >
             Read the essay
           </Link>
           <Link
             href="/newsletter"
-            className="text-sm underline underline-offset-4 opacity-80 hover:opacity-100"
+            className="text-sm underline underline-offset-4 opacity-80 hover:opacity-100 cursor-pointer inline-block transition-opacity"
           >
-            Get new essays by email
+            Receive new essays quietly, by email
           </Link>
         </div>
       </article>
@@ -160,7 +207,12 @@ export default function JournalIndex() {
             <div className="text-xs opacity-60">{formatDate(p.date)}</div>
 
             <h3 className="mt-2 text-lg font-semibold">
-              <Link href={`/journal/${p.slug}`}>{p.title}</Link>
+              <Link
+                href={`/journal/${p.slug}`}
+                className="cursor-pointer inline-block transition-opacity opacity-95 hover:opacity-100"
+              >
+                {p.title}
+              </Link>
             </h3>
 
             <p className="mt-2 text-sm opacity-80">{p.excerpt}</p>
@@ -178,7 +230,7 @@ export default function JournalIndex() {
             <div className="mt-5">
               <Link
                 href={`/journal/${p.slug}`}
-                className="text-sm underline underline-offset-4 opacity-80 hover:opacity-100"
+                className="text-sm underline underline-offset-4 opacity-80 hover:opacity-100 cursor-pointer inline-block transition-opacity"
               >
                 Continue reading
               </Link>
@@ -193,10 +245,16 @@ export default function JournalIndex() {
           Want the next essay before it lands here? Join the circle.
         </p>
         <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <Link href="/newsletter" className="border px-6 py-2.5 rounded-md text-sm border-glow">
+          <Link
+            href="/newsletter"
+            className="border px-6 py-2.5 rounded-md text-sm border-glow cursor-pointer transition-opacity opacity-90 hover:opacity-100"
+          >
             Join the circle
           </Link>
-          <Link href="/contact" className="underline underline-offset-4 text-sm opacity-80 hover:opacity-100">
+          <Link
+            href="/contact"
+            className="underline underline-offset-4 text-sm opacity-80 hover:opacity-100 cursor-pointer inline-block transition-opacity"
+          >
             Invite Diego to speak
           </Link>
         </div>
