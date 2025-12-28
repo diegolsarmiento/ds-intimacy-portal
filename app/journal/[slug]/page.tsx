@@ -42,9 +42,11 @@ export default async function PostPage({ params }: { params: Promise<Params> }) 
   const post = findPost(slug)
   if (!post) return notFound()
 
-  const idx = posts.findIndex(p => p.slug === post.slug)
-  const prev = idx > 0 ? posts[idx - 1] : null
-  const next = idx < posts.length - 1 ? posts[idx + 1] : null
+  // ✅ keep navigation consistent with index page
+  const sorted = [...posts].sort((a, b) => +new Date(b.date) - +new Date(a.date))
+  const idx = sorted.findIndex(p => p.slug === post.slug)
+  const prev = idx > 0 ? sorted[idx - 1] : null
+  const next = idx < sorted.length - 1 ? sorted[idx + 1] : null
 
   const bodyText = post.body?.trim() || ''
   const rt = bodyText ? estimateReadingTime(bodyText) : null
@@ -107,9 +109,7 @@ export default async function PostPage({ params }: { params: Promise<Params> }) 
       {/* Body */}
       <article className="mt-10 space-y-6 leading-relaxed opacity-90">
         {post.body ? (
-          post.body
-            .split('\n\n')
-            .map((para, i) => <p key={i}>{para}</p>)
+          post.body.split('\n\n').map((para, i) => <p key={i}>{para}</p>)
         ) : (
           <p>
             This essay is coming soon. Join the circle to get it first—then come back and let it linger on your skin.
