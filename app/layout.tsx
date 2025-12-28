@@ -13,14 +13,8 @@ const inter = Inter({
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID
 
-const GOOGLE_ANALYTICS_SCRIPT = `
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', '${GA_ID}');
-`
-
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.diegosarmiento.com'),
   title: {
     default: 'Diego Sarmiento - The Intimacy Code',
     template: '%s | Diego Sarmiento',
@@ -31,20 +25,35 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const GA_INIT = GA_ID
+    ? `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${GA_ID}');
+    `
+    : ''
+
   return (
     <html lang="en">
-    <body
+      <body
         className={`${inter.className} min-h-dvh flex flex-col bg-[rgb(var(--background))] text-[rgb(var(--foreground))]`}
       >
-        <Script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-        />
-        <Script
-          id="ga-init"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{ __html: GOOGLE_ANALYTICS_SCRIPT }}
-        />
+        {/* Google Analytics (only if configured) */}
+        {GA_ID ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script
+              id="ga-init"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{ __html: GA_INIT }}
+            />
+          </>
+        ) : null}
+
         <Nav />
         <main className="flex-1">{children}</main>
         <SiteFooter />
