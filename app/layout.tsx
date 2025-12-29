@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: 'Diego Sarmiento - The Intimacy Code',
     description:
       'Author of The Intimacy Code — exploring technology, desire, and the art of emotional connection.',
-    images: ['/images/og-book.png'],
+    images: ['https://www.diegosarmiento.com/images/og-book.png'],
   },
 }
 

@@ -3,14 +3,14 @@ import Image from 'next/image'
 const items = [
   {
     name: 'Rocketch',
-    href: 'https://rocketch.ai',
+    href: 'https://www.rocketch.ai',
     desc: 'Order and calm for family law—an AI assistant designed to reduce friction, anxiety, and overload in emotionally sensitive journeys.',
     logo: '/images/rocketch_mark.png',
     tag: 'Active product · Founder & designer',
   },
   {
     name: 'SeductHub',
-    href: 'https://seducthub.com',
+    href: 'https://www.seducthub.com',
     desc: 'An AI-powered commerce and creator platform exploring emotional UX, intimacy, and trust in adult wellness.',
     logo: '/images/seducthub_mark.png',
     tag: 'Ongoing lab · Founder',
