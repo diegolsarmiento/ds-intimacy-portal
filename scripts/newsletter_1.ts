@@ -3,7 +3,7 @@ import { resend, FROM } from '@/lib/email/resend'
 const subscribers = [
   'hi@rocketch.com',
   'dlsarmiento@gmail.com',
-  'reydescalzo@yahoo.com'
+  'reydescalzo@yahoo.com',
 ]
 
 async function main() {
@@ -34,14 +34,32 @@ async function main() {
     </div>
   `
 
-  await resend.emails.send({
-    from: FROM,
-    to: subscribers,
-    subject,
-    html,
-  })
+  let sent = 0
+  const failed: Array<{ email: string; error: string }> = []
 
-  console.log('Sent 💗', subscribers.length)
+  for (const email of subscribers) {
+    try {
+      await resend.emails.send({
+        from: FROM,
+        to: email, // ✅ individual send (no leak)
+        subject,
+        html,
+        // optional: makes replies go where you want
+        replyTo: 'hola@diegosarmiento.com',
+      })
+      sent++
+      console.log('Sent 💗 to', email)
+    } catch (e: any) {
+      failed.push({ email, error: e?.message || String(e) })
+      console.error('Failed ❌', email, e)
+    }
+  }
+
+  console.log(`Done. Sent: ${sent}/${subscribers.length}`)
+  if (failed.length) {
+    console.log('Failures:', failed)
+    process.exitCode = 1
+  }
 }
 
 main().catch((e) => {
