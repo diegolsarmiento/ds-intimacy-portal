@@ -21,7 +21,15 @@ async function main() {
       <p><em>The house is quiet. The laptop is open. You don’t write yet. You breathe.</em></p>
       <p>We touch screens all day without asking which part of us is responding first. Urgency isn’t productivity. It’s anxiety in disguise.</p>
       <p><strong>Insight</strong><br/>True digital intimacy begins before the click. In the second where you choose whether you enter… or abandon yourself.</p>
-      <p><strong>DS</strong><br/>Digital Intimacy & Sensory Storytelling</p>
+      <p>
+        <strong>DS</strong><br/>
+        <a
+          href="https://www.diegosarmiento.com"
+          style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(0,0,0,.25)"
+        >
+          Digital Intimacy & Sensory Storytelling
+        </a>
+      </p>
       <p><strong>Recommendation</strong><br/>Before opening any app today: hand on your chest, one long exhale, then decide.</p>
     </div>
   `
