@@ -67,7 +67,7 @@ export default function Book() {
               target="_blank"
               rel="noreferrer"
               href={AMAZON_EN_URL}
-              className="border px-5 py-2.5 rounded-md text-sm font-medium opacity-90 border-[rgb(var(--lav))] hover:opacity-100 cursor-pointer transition-opacity"
+              className="px-5 py-2.5 rounded-md text-sm font-medium opacity-90 border border-[rgb(var(--lav))] hover:border-[rgb(var(--rose))] transition-colors cursor-pointer "
             >
               Explore the book <span className="ml-1 text-xs opacity-70">(EN)</span>
             </Link>
@@ -77,7 +77,7 @@ export default function Book() {
               target="_blank"
               rel="noreferrer"
               href={AMAZON_ES_URL}
-              className="border px-5 py-2.5 rounded-md text-sm font-medium opacity-80 border-[rgb(var(--rose))] hover:opacity-100 cursor-pointer transition-opacity"
+              className="px-5 py-2.5 rounded-md text-sm font-medium opacity-80 border border-[rgb(var(--rose))] hover:border-[rgb(var(--lav))] transition-colors cursor-pointer "
             >
               Leer el libro <span className="ml-1 text-xs opacity-60">(ES)</span>
             </Link>
