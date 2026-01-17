@@ -61,41 +61,47 @@ export default function Book() {
             Best for readers, product teams, and creators working in sensitive spaces—where tone, trust, and desire are part of the UX.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3 items-center">
-            {/* English */}
-            <Link
-              target="_blank"
-              rel="noreferrer"
-              href={AMAZON_EN_URL}
-              className="px-5 py-2.5 rounded-md text-sm font-medium opacity-90 border border-[rgb(var(--lav))] hover:border-[rgb(var(--rose))] transition-colors cursor-pointer "
-            >
-              Explore the book <span className="ml-1 text-xs opacity-70">(EN)</span>
-            </Link>
+          <div className="mt-8 flex flex-col gap-3">
+            <div className="flex flex-wrap gap-3 items-center">
+              {/* English */}
+              <Link
+                target="_blank"
+                rel="noreferrer"
+                href={AMAZON_EN_URL}
+                className="px-5 py-2.5 rounded-md text-sm font-medium opacity-90 border border-[rgb(var(--lav))] hover:border-[rgb(var(--rose))] transition-colors cursor-pointer"
+              >
+                Explore the book <span className="ml-1 text-xs opacity-70">(EN)</span>
+              </Link>
 
-            {/* Spanish */}
-            <Link
-              target="_blank"
-              rel="noreferrer"
-              href={AMAZON_ES_URL}
-              className="px-5 py-2.5 rounded-md text-sm font-medium opacity-80 border border-[rgb(var(--rose))] hover:border-[rgb(var(--lav))] transition-colors cursor-pointer "
-            >
-              Leer el libro <span className="ml-1 text-xs opacity-60">(ES)</span>
-            </Link>
+              {/* Spanish */}
+              <Link
+                target="_blank"
+                rel="noreferrer"
+                href={AMAZON_ES_URL}
+                className="px-5 py-2.5 rounded-md text-sm font-medium opacity-80 border border-[rgb(var(--rose))] hover:border-[rgb(var(--lav))] transition-colors cursor-pointer"
+              >
+                Leer el libro <span className="ml-1 text-xs opacity-60">(ES)</span>
+              </Link>
+            </div>
 
-            {/* Secondary links */}
-            <Link
-              href="/book"
-              className="underline underline-offset-4 text-sm opacity-80 hover:opacity-100 cursor-pointer inline-block transition-opacity"
-            >
-              Read an excerpt
-            </Link>
+            {/* Secondary row */}
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-xs opacity-50">More:</span>
 
-            <Link
-              href="/journal"
-              className="underline underline-offset-4 text-sm opacity-70 hover:opacity-100 cursor-pointer inline-block transition-opacity"
-            >
-              Read related essays
-            </Link>
+              <Link
+                href="/book"
+                className="rounded-full border px-3 py-1 text-xs opacity-80 hover:opacity-100 transition-opacity border-glow"
+              >
+                Read an excerpt
+              </Link>
+
+              <Link
+                href="/journal"
+                className="rounded-full border px-3 py-1 text-xs opacity-70 hover:opacity-100 transition-opacity border-glow"
+              >
+                Related essays
+              </Link>
+            </div>
           </div>
         </div>
       </div>
