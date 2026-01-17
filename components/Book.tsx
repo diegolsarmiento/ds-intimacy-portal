@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-const AMAZON_URL = 'https://www.amazon.com/dp/B0G2G277KX'
+const AMAZON_EN_URL = 'https://www.amazon.com/dp/B0G2G277KX'
+const AMAZON_ES_URL = 'https://www.amazon.com/dp/B0GH1XKGD7'
 
 export default function Book() {
   return (
@@ -61,15 +62,27 @@ export default function Book() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3 items-center">
+            {/* English */}
             <Link
               target="_blank"
               rel="noreferrer"
-              href={AMAZON_URL}
-              className="border px-5 py-2.5 rounded-md text-sm font-medium opacity-90 hover:opacity-100 border-glow cursor-pointer transition-opacity"
+              href={AMAZON_EN_URL}
+              className="border px-5 py-2.5 rounded-md text-sm font-medium opacity-90 border-[rgb(var(--lav))] hover:opacity-100 cursor-pointer transition-opacity"
             >
-              Explore the book
+              Explore the book <span className="ml-1 text-xs opacity-70">(EN)</span>
             </Link>
 
+            {/* Spanish */}
+            <Link
+              target="_blank"
+              rel="noreferrer"
+              href={AMAZON_ES_URL}
+              className="border px-5 py-2.5 rounded-md text-sm font-medium opacity-80 border-[rgb(var(--rose))] hover:opacity-100 cursor-pointer transition-opacity"
+            >
+              Leer el libro <span className="ml-1 text-xs opacity-60">(ES)</span>
+            </Link>
+
+            {/* Secondary links */}
             <Link
               href="/book"
               className="underline underline-offset-4 text-sm opacity-80 hover:opacity-100 cursor-pointer inline-block transition-opacity"
