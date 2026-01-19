@@ -1,6 +1,8 @@
 export const metadata = { title: 'The Intimacy Code' }
-
+import Link from 'next/link'
 const AMAZON_URL = 'https://www.amazon.com/dp/B0G2G277KX'
+const AMAZON_EN_URL = 'https://www.amazon.com/dp/B0G2G277KX'
+const AMAZON_ES_URL = 'https://www.amazon.com/dp/B0GH1XKGD7'
 
 export default function BookPage() {
   return (
@@ -16,26 +18,30 @@ export default function BookPage() {
         </p>
 
         {/* CTAs */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <a
-            href={AMAZON_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="button rounded-md border px-5 py-2 text-sm border-glow"
-          >
-            Buy on Amazon
-          </a>
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+              {/* English */}
+              <Link
+                target="_blank"
+                rel="noreferrer"
+                href={AMAZON_EN_URL}
+                className="px-5 py-2.5 rounded-md text-sm font-medium opacity-90 border border-[rgb(var(--lav))] hover:border-[rgb(var(--rose))] transition-colors cursor-pointer"
+              >
+                Explore book <span className="ml-1 text-xs opacity-70">(EN)</span>
+              </Link>
 
-          <a
-            href="/contact"
-            className="rounded-md border px-5 py-2 text-sm opacity-90 hover:opacity-100"
-          >
-            Invite Diego to speak
-          </a>
-        </div>
+              {/* Spanish */}
+              <Link
+                target="_blank"
+                rel="noreferrer"
+                href={AMAZON_ES_URL}
+                className="px-5 py-2.5 rounded-md text-sm font-medium opacity-80 border border-[rgb(var(--rose))] hover:border-[rgb(var(--lav))] transition-colors cursor-pointer"
+              >
+                Leer el libro <span className="ml-1 text-xs opacity-60">(ES)</span>
+              </Link>
+            </div>
 
         <p className="mt-3 text-xs opacity-60">
-          Prefer a workshop or reading circle for your team/community? Reach out — I’ll tailor it.
+          Curious to explore The Intimacy Code with others? I offer reading circles and tailored sessions for teams and communities.
         </p>
       </header>
 
