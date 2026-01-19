@@ -15,6 +15,13 @@ const items = [
     logo: '/images/seducthub_mark.png',
     tag: 'Ongoing lab · Founder',
   },
+  {
+    name: 'TabooTemp',
+    href: 'https://www.tabootempt.com',
+    desc: 'An experimental AI role-play and companion platform exploring desire, power, secrecy, and consent through narrative-driven intimacy.',
+    logo: '/images/tabootempt_mark.png',
+    tag: 'Experimental platform · Founder',
+  }
 ]
 
 export default function Projects() {
@@ -29,7 +36,7 @@ export default function Projects() {
         </p>
       </div>
 
-      <div className="mt-10 grid gap-6 md:grid-cols-2">
+      <div className="mt-10 grid gap-6 md:grid-cols-3">
         {items.map((it) => (
           <a
             key={it.name}
