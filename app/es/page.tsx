@@ -29,7 +29,7 @@ function ChatbotBlock() {
   )
 }
 
-const AMAZON_INTIMACY = 'https://www.amazon.com/dp/B0G2G277KX'
+const AMAZON_ES_URL = 'https://www.amazon.com/dp/B0GH1XKGD7'
 const AMAZON_QUEMADO = 'https://www.amazon.com/dp/B0FQHHZ46G' // (si este ASIN es correcto)
 
 export default function SpanishLanding() {
@@ -85,14 +85,14 @@ export default function SpanishLanding() {
         </div>
       </section>
 
-      {/* The Intimacy Code */}
+      {/* El Código de la Intimidad */}
       <section
         id="intimacy-code"
         className="grid gap-8 md:grid-cols-2 md:items-center border-t pt-16"
       >
         <div>
           <h2 className="text-2xl md:text-3xl font-semibold">
-            The <span className="text-glow">Intimacy</span> Code
+            El <span className="text-glow">Código</span> de la <span className="text-glow">Intimidad</span> 
           </h2>
 
           <p className="mt-4 opacity-80 text-base leading-relaxed">
@@ -103,7 +103,7 @@ export default function SpanishLanding() {
 
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
-              href={AMAZON_INTIMACY}
+              href={AMAZON_ES_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="border px-5 py-2.5 rounded-md text-sm border-glow"
@@ -133,8 +133,8 @@ export default function SpanishLanding() {
 
         <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl bg-neutral-100 card-hover">
           <Image
-            src="/images/intimacy-code-cover.png"
-            alt="Portada del libro The Intimacy Code"
+            src="/images/intimacy-code-cover-es.png"
+            alt="Portada del libro El Código de la Intimidad"
             fill
             className="object-cover object-center"
           />
